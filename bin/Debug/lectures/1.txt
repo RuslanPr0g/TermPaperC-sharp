@@ -1,0 +1,87 @@
+1	Events	Delegates and Events	An event in a very simple language is an action or occurrence, such as clicks, key
+press, mouse movements, or system generated notifications. Application can respond
+to events when they occur. Events are messages sent by the object to indicate the
+occurrence of the event. Events are an effective mean of inter-process
+communication.
+
+In C#, delegates are used with events to implement event handling.(*new_line*)These two diagrams hide a lot of details
+• How is the subscriber list maintained?
+• How is the event generated?
+• How is notification sent to each subscriber?
+• What is an event – really?
+• How can you add custom event processing to your programs?
+• This presentation attempts to answer these questions in a clear
+manner...(*new_line*)As we can see button on the form was clicked by the user and hence button click event
+was fired which was handled by Delegate which in turn called button_click method
+(Event handler method) which showed our Message Box. In above example Event
+declaration, Delegate declaration, Event handler declaration all done by .NET we just
+have to write code handle to our event in this case code to display message box.(*new_line*)To implement custom event processing in your programs you need to
+understand how to create the following component types:
+• Delegates
+• Event Generating Objects (publishers)
+• Events
+• Event Notification Methods
+• Event Handling Objects (subscribers)
+• Event Handler Methods(*new_line*)•Delegate
+• Delegate types represent references to methods with a
+particular parameter list and return type
+• Example
+• EventHandler(Object sender, EventArgs e)
+• Represents a method that has two parameters, the first one being of
+type Object and the second being of type EventArgs. Its return type is
+void.
+• Any method, so long as its signature matches that expected by the
+delegate, can be handled by the delegate.(*new_line*)But just what is a delegate?
+• A delegate is a reference type object.
+• A delegate extends either the System.Delegate or
+MulticastDelegate class
+• Depends on whether one (Delegate) or more (MulticaseDelegate)
+subscribers are involved
+
+• You do not extend Delegate or MulticastDelegate
+• The C# compiler does it for you(*new_line*)A publisher is any class that can fire an event and send event
+notifications to interested subscribers
+• A publisher class contains the following critical elements:
+• An event field
+• This is what subscribers subscribe to...
+• An event notification method
+• This activates the subscriber notification process when the event occurs
+• And some means of generating the event or recognizing the event in question
+has occurred
+• This usually happens in a method as well(*new_line*)In addition to an event field a publisher will have a method whose job
+it is to start the subscriber notification process when the event in
+question occurs
+• An event notification method is just a normal method
+• It usually has a parameter of EventArgs or a user-defined subtype of
+EventArgs.
+• But it can have any number and type of parameters you require(*new_line*)Role of Each Component
+- Event Handler Method -
+
+• An event handler methods is an ordinary method that is registered with a
+publisher’s event.
+• The event handler method’s signature must match the signature required by the
+publisher’s event delegate.(*new_line*)namespace CustomEventExample {
+
+public class MainApp {
+public static void Main(){
+Console.WriteLine("Custom Events are Cool!");
+
+Publisher p = new Publisher();
+Subscriber s = new Subscriber(p);
+p.countMinutes();(*new_line*)public void countMinutes(){
+int current_minute = DateTime.Now.Minute;
+while(true){
+if(current_minute != DateTime.Now.Minute){
+Console.WriteLine("Publisher: {0}", DateTime.Now.Minute);
+onMinuteTick(new MinuteEventArgs(DateTime.Now));
+current_minute = DateTime.Now.Minute;(*new_line*)public class MinuteEventArgs : EventArgs {
+private DateTime date_time;
+
+public MinuteEventArgs(DateTime date_time){
+this.date_time = date_time;
+}
+
+public int Minute {
+get { return date_time.Minute; }
+}
+}(*new_line*)

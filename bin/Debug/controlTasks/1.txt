@@ -1,0 +1,36 @@
+1(*task_tab*)1(*task_tab*)Events(*task_tab*)1999(*task_tab*)What will this code return?
+
+MessageBoxShow("Hello, World!");(*question_tab*)QuestionGetValue(*question_tab*)8(*question_tab*)Hello, World!(*task_tab*)C# class can inherit multiple ________(*question_tab*)QuestionChoice(*question_tab*)0(*question_tab*)Classes(*answer_tab*)False(*question_tab*)Interfaces(*answer_tab*)True(*question_tab*)Abstract Classes(*answer_tab*)False(*question_tab*)Static Classes(*answer_tab*)False(*task_tab*)Which of the followings are value types in C#?(*question_tab*)QuestionChoice(*question_tab*)1(*question_tab*)Int32(*answer_tab*)False(*question_tab*)Double(*answer_tab*)False(*question_tab*)Decimal(*answer_tab*)False(*question_tab*)All of the above(*answer_tab*)True(*task_tab*)Which of the following is a reference type in C#?(*question_tab*)QuestionChoice(*question_tab*)2(*question_tab*)String(*answer_tab*)True(*question_tab*)Long(*answer_tab*)False(*question_tab*)Boolean(*answer_tab*)False(*question_tab*)None of the above(*answer_tab*)False(*task_tab*)What is Nullable type?(*question_tab*)QuestionChoice(*question_tab*)3(*question_tab*)It allows assignment of null to reference type.(*answer_tab*)True(*question_tab*)It allows assignment of null to value type.(*answer_tab*)False(*question_tab*)It allows assignment of null to static class.(*answer_tab*)False(*question_tab*)None of the above,(*answer_tab*)False(*task_tab*)Struct is a _____.(*question_tab*)QuestionChoice(*question_tab*)4(*question_tab*)Reference type(*answer_tab*)True(*question_tab*)Value type(*answer_tab*)False(*question_tab*)Class type(*answer_tab*)False(*question_tab*)String type(*answer_tab*)False(*task_tab*)10 > 9 ? "10 is greater than 9” : "9 is greater than 10” is an example of _______(*question_tab*)QuestionChoice(*question_tab*)5(*question_tab*)Ternary operator(*answer_tab*)True(*question_tab*)Conditional operator(*answer_tab*)False(*question_tab*)Greater than operator(*answer_tab*)False(*question_tab*)Inverse operator(*answer_tab*)False(*task_tab*)Which of the following datatype can be used with enum?(*question_tab*)QuestionChoice(*question_tab*)6(*question_tab*)Int(*answer_tab*)False(*question_tab*)String(*answer_tab*)False(*question_tab*)Boolean(*answer_tab*)False(*question_tab*)All of the above(*answer_tab*)True(*task_tab*)class Program {  
+    static void Main() {  
+        var registerUser = new RegisterUser();  
+        var emailVerification = new EmailVerification();  
+        var smsVerification = new SMSVerification();  
+        registerUser.registerUserDelegateInstance += emailVerification.OnUserRegistered;  
+        registerUser.registerUserDelegateInstance += smsVerification.OnUserRegistered;  
+        registerUser.RegisterAUser(); // Call delegate  
+        Console.ReadLine();  
+    }  
+}  
+public class RegisterUser {  
+    public delegate void registerUserDelegate(); // declare a delegate  
+    public registerUserDelegate registerUserDelegateInstance; // create a delegate instance  
+    public void RegisterAUser() {  
+        Console.WriteLine("User registered");  
+        if (registerUserDelegateInstance != null) {  
+            registerUserDelegateInstance(); // Call the delegate  
+        }  
+    }  
+}  
+public class EmailVerification {  
+    public void OnUserRegistered() {  
+        Console.WriteLine("Sent Email for Verification");  
+    }  
+}  
+public class SMSVerification {  
+    public void OnUserRegistered() {  
+        Console.WriteLine("Sent SMS for Verification");  
+    }  
+}   
+
+
+What this code represents?(*question_tab*)QuestionChoice(*question_tab*)7(*question_tab*)User registers(*answer_tab*)True(*question_tab*)Email send(*answer_tab*)True(*question_tab*)SMS send(*answer_tab*)True(*question_tab*)Encapsulation(*answer_tab*)False(*question_tab*)Reverse string(*answer_tab*)False

@@ -1,0 +1,213 @@
+2	Delegates	Delegates and Events	During previous lessons, you learned how to implement reference types using language constructs such as classes and interfaces. These reference types allowed you to create instances of objects and use them in special ways to accomplish your software development goals. Classes allow you to create objects that contained members with attributes or behavior. Interfaces allow you to declare a set of attributes and behavior that all objects implementing them would publicly expose. Today, I’m going to introduce a new reference type called a delegate.
+
+A delegate is a C# language element that allows you to reference a method. If you were a C or C++ programmer, this would sound familiar because a delegate is basically a function pointer. However, developers who have used other languages are probably wondering, “Why do I need a reference to a method?”. The answer boils down to giving you maximum flexibility to implement any functionality you want at runtime.
+
+Think about how you use methods right now. You write an algorithm that does its thing by manipulating the values of variables and calling methods directly by name. What if you wanted an algorithm that was very flexible, reusable, and allowed you to implement different functionality as the need arises? Furthermore, let’s say that this was an algorithm that supported some type of data structure that you wanted to have sorted, but you also want to enable this data structure to hold different types. If you don’t know what the types are, how could you decide an appropriate comparison routine? Perhaps you could implement an if/then/else or switch statement to handle well-known types, but this would still be limiting and require overhead to determine the type. Another alternative would be for all the types to implement an interface that declared a common method your algorithm would call, which is actually a nice solution. However, since this lesson is about delegates, we’ll apply a delegate solution, which is quite elegant.
+
+You could solve this problem by passing a delegate to your algorithm and letting the contained method, which the delegate refers to, perform the comparison operation. Such an operation is performed in Listing 14-1.(*new_line*)C# Delegate Example
+Listing 14-1. Declaring and Implementing a Delegate: SimpleDelegate.cs
+using System;
+
+// this is the delegate declaration
+public delegate int Comparer(object obj1, object obj2);
+
+public class Name
+{
+    public string FirstName = null;
+    public string LastName = null;
+
+    public Name(string first, string last)
+    {
+        FirstName = first;
+        LastName = last;
+    }
+
+    // this is the delegate method handler
+    public static int CompareFirstNames(object name1, object name2)
+    {
+        string n1 = ((Name)name1).FirstName;
+        string n2 = ((Name)name2).FirstName;
+
+        if (String.Compare(n1, n2) > 0)
+        {
+            return 1;
+        }
+        else if (String.Compare(n1, n2) < 0)
+        {
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public override string ToString()
+    {
+        return FirstName + " " + LastName;
+    }
+}
+
+class SimpleDelegate
+{
+    Name[] names = new Name[5];
+
+    public SimpleDelegate()
+    {
+        names[0] = new Name("Joe", "Mayo");
+        names[1] = new Name("John", "Hancock");
+        names[2] = new Name("Jane", "Doe");
+        names[3] = new Name("John", "Doe");
+        names[4] = new Name("Jack", "Smith");
+    }
+
+    static void Main(string[] args)
+    {
+        SimpleDelegate sd = new SimpleDelegate();
+
+        // this is the delegate instantiation
+        Comparer cmp = new Comparer(Name.CompareFirstNames);
+
+        Console.WriteLine("\nBefore Sort: \n");
+
+        sd.PrintNames();
+
+        // observe the delegate argument
+        sd.Sort(cmp);
+
+        Console.WriteLine("\nAfter Sort: \n");
+
+        sd.PrintNames();
+    }
+
+    // observe  the delegate parameter
+    public void Sort(Comparer compare)
+    {
+        object temp;
+
+        for (int i=0; i < names.Length; i++)
+        {
+            for (int j=i; j < names.Length; j++)
+            {
+                // using delegate "compare" just like
+                // a normal method
+                if ( compare(names[i], names[j]) > 0 )
+                {
+                    temp = names[i];
+                    names[i] = names[j];
+                    names[j] = (Name)temp;
+                }
+            }
+        }
+    }
+
+    public void PrintNames()
+    {
+        Console.WriteLine("Names: \n");
+
+        foreach (Name name in names)
+        {
+            Console.WriteLine(name.ToString());
+        }
+    }
+}(*new_line*)The first thing the program in this C# delegate example from Listing 14-1 does is declare a delegate. Delegate declarations look somewhat like methods, except they have the delegate modifier, are terminated with a semi-colon (;), and have no implementation. Below, is the delegate declaration from Listing 14-1.
+
+public delegate int Comparer(object obj1, object obj2);
+This delegate declaration defines the signature of a delegate handler method that this delegate can refer to. The delegate handler method, for the Comparer delegate, can have any name but must have the first parameter of type object, the second parameter of type object, and return an int type. The following method from Listing 14-1 shows a delegate handler method that conforms to the signature of the Comparer delegate.
+
+    public static int CompareFirstNames(object name1, object name2)
+    {
+        ...
+    }(*new_line*)Note: The CompareFirstNames method calls String. Compare to compare the FirstName properties of the two Name instances. The String class has many convenience methods, such as Compare, for working with strings. Please don’t allow the implementation of this method to interfere with learning how delegates work. What you should concentrate on is that CompareFirstNames is a handler method that a delegate can refer to, regardless of the code inside of that method.
+
+To use a delegate, you must create an instance of it. The instance is created, similar to a class instance, with a single parameter identifying the appropriate delegate handler method, as shown below.
+
+        Comparer cmp = new Comparer(Name.CompareFirstNames);
+The delegate, CMP, is then used as a parameter to the Sort() method, which uses it just like a normal method. Observe the way the delegate is passed to the Sort() method as a parameter in the code below.
+
+        sd.Sort(cmp);
+Using this technique, any delegate handler method may be passed to the Sort() method at run-time. i.e. You could define a method handler named CompareLastNames(), instantiate a new Comparer delegate instance with it, and pass the new delegate to the Sort() method.(*new_line*)Events
+Traditional Console applications operate by waiting for a user to press a key or type a command and press the Enter key. Then they perform some pre-defined operation and either quit or return to the original prompt that they started from. This works but is inflexible in that everything is hard-wired and follows a rigid path of execution. In stark contrast, modern GUI programs operate on an event-based model. That is, some event in the system occurs and interested modules are notified so they can react appropriately. With Windows Forms, there is not a polling mechanism taking up resources and you don’t have to code a loop that sits waiting for input. It is all built into the system with events.
+
+A C# event is a class member that is activated whenever the event it was designed for occurs. I like to use the term “fires” when the event is activated. Anyone interested in the event can register and be notified as soon as the event fires. At the time an event fires, registered methods will be invoked.
+
+Events and delegates work hand-in-hand to provide a program’s functionality. It starts with a class that declares an event. Any class, including the same class that the event is declared in, may register one of its methods for the event. This occurs through a delegate, which specifies the signature of the method that is registered for the event. The delegate may be one of the pre-defined .NET delegates or one you declare yourself. Whichever is appropriate, you assign the delegate to the event, which effectively registers the method that will be called when the event fires. Listing 14-2 shows a couple of different ways to implement events.(*new_line*)Listing 14-2. Declaring and Implementing Events: Eventdemo.cs
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+// custom delegate
+public delegate void Startdelegate();
+
+class Eventdemo : Form
+{
+    // custom event
+    public event Startdelegate StartEvent;
+
+    public Eventdemo()
+    {
+        Button clickMe = new Button();
+
+        clickMe.Parent = this;
+        clickMe.Text = "Click Me";
+        clickMe.Location = new Point(
+            (ClientSize.Width - clickMe.Width) /2,
+            (ClientSize.Height - clickMe.Height)/2);
+
+        // an EventHandler delegate is assigned
+        // to the button's Click event
+        clickMe.Click += new EventHandler(OnClickMeClicked);
+
+        // our custom "Startdelegate" delegate is assigned
+        // to our custom "StartEvent" event.
+        StartEvent += new Startdelegate(OnStartEvent);
+
+        // fire our custom event
+        StartEvent();
+    }
+
+    // this method is called when the "clickMe" button is pressed
+    public void OnClickMeClicked(object sender, EventArgs ea)
+    {
+        MessageBox.Show("You Clicked My Button!");
+    }
+
+    // this method is called when the "StartEvent" Event is fired
+    public void OnStartEvent()
+    {
+        MessageBox.Show("I Just Started!");
+    }
+
+    static void Main(string[] args)
+    {
+        Application.Run(new Eventdemo());
+    }
+}
+Note: If you’re using Visual Studio or another IDE, remember to add references to System.Drawing.dll and System.Windows.Forms.dll before compiling Listing 14.2 or just add the code to a Windows Forms project. Teaching the operation of Visual Studio or other IDE’s is out-of-scope for this tutorial.
+
+You may have noticed that Listing 14-2 is a Windows Forms program. Although I haven’t covered Windows Forms in this tutorial, you should know enough about C# programming in general that you won’t be lost. To help out, I’ll give a brief explanation of some of the parts that you may not be familiar with.
+
+The Event demo class inherits Form, which essentially makes it a Windows Form. This automatically gives you all the functionality of a Windows Form, including Title Bar, Minimize/Maximize/Close buttons, System Menu, and Borders. A lot of power, that inheritance thing, eh?
+
+The way a Windows Form’s application is started is by calling the Run() method of the static Application object with a reference to the form object as its parameter. This starts up all the underlying Windows plumbing, displays the GUI, and ensures that events are fired as appropriate.
+
+Let’s look at the custom event first. Below is the event declaration, which is a member of the Event demo class. It is declared with the event keyword, a delegate type, and an event name.
+
+    public event Startdelegate StartEvent;
+Anyone interested in an event can register by hooking up a delegate for that event. On the next line, we have a delegate of typeStartdelegate, which the event was declared to accept, hooked up to the StartEvent event. The += syntax registers a delegate with an event. To unregister with an event, use the -= with the same syntax.
+
+        StartEvent += new Startdelegate(OnStartEvent);
+Firing an event looks just like a method call, as shown below:
+
+StartEvent();
+This was how to implement events from scratch, declaring the event and delegate yourself. However, much of the event programming you’ll do will be with pre-defined events and delegates. This leads us to the other event code you see in Listing 14-2, where we hook up an EventHandler delegate to a Button Click event.
+
+        clickMe.Click += new EventHandler(OnClickMeClicked);
+The Click event already belongs to the Button class and all we have to do is reference it when registering a delegate. Similarly, the EventHandler delegate already exists in the System namespace of the .NET Frameworks Class Library. All you really need to do is define your callback method (delegate handler method) that is invoked when someone presses the click Me button. The OnClickMeClicked()method, shown below, conforms to the signature of the EventHandler delegate, which you can look up in the .NET Framework Class Library reference.
+
+    public void OnClickMeClicked(object sender, EventArgs ea)
+    {
+        MessageBox.Show("You Clicked My Button!");
+    }
+Any time the clickMe button is pressed with a mouse, it will fire the Click event, which will invoke the OnClickMeClicked() method. TheButton class takes care of firing the Click event and there’s nothing more you have to do. Because it is so easy to use pre-defined events and delegates, it would be a good idea to check if some exist already that will do what you need, before creating your own.(*new_line*)Summary
+This completes the lesson, which was an introduction to delegates and events. You learned how to declare and implement delegates, which provide dynamic run-time method invocation services. You also know how to declare events and use them in a couple different scenarios. One way is to declare your own event, delegate, and callback method from scratch. Another way is to use pre-existing events and delegates only implement the callback method, which will save you time and make coding easier.(*new_line*)
