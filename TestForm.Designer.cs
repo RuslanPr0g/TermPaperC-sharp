@@ -163,27 +163,27 @@
             // QuestionCountLabel
             // 
             this.QuestionCountLabel.AutoSize = true;
-            this.QuestionCountLabel.Location = new System.Drawing.Point(3, 15);
+            this.QuestionCountLabel.Location = new System.Drawing.Point(13, 19);
             this.QuestionCountLabel.Name = "QuestionCountLabel";
-            this.QuestionCountLabel.Size = new System.Drawing.Size(189, 17);
+            this.QuestionCountLabel.Size = new System.Drawing.Size(207, 23);
             this.QuestionCountLabel.TabIndex = 1;
             this.QuestionCountLabel.Text = "Question ?value? of ?value?";
             // 
             // c
             // 
             this.c.AutoSize = true;
-            this.c.Location = new System.Drawing.Point(3, 63);
+            this.c.Location = new System.Drawing.Point(13, 68);
             this.c.Name = "c";
-            this.c.Size = new System.Drawing.Size(194, 17);
+            this.c.Size = new System.Drawing.Size(215, 23);
             this.c.TabIndex = 2;
             this.c.Text = "Answered ?value? of ?value?";
             // 
             // TimeRemainedLabel
             // 
             this.TimeRemainedLabel.AutoSize = true;
-            this.TimeRemainedLabel.Location = new System.Drawing.Point(0, 111);
+            this.TimeRemainedLabel.Location = new System.Drawing.Point(13, 119);
             this.TimeRemainedLabel.Name = "TimeRemainedLabel";
-            this.TimeRemainedLabel.Size = new System.Drawing.Size(179, 17);
+            this.TimeRemainedLabel.Size = new System.Drawing.Size(205, 23);
             this.TimeRemainedLabel.TabIndex = 3;
             this.TimeRemainedLabel.Text = "Time remained: 0 seconds.";
             // 
@@ -257,6 +257,7 @@
             this.MainMenuPanel.Controls.Add(this.TimeRemainedLabel);
             this.MainMenuPanel.Controls.Add(this.NextQuestionButton);
             this.MainMenuPanel.Controls.Add(this.PreviousQuestionButton);
+            this.MainMenuPanel.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.MainMenuPanel.Location = new System.Drawing.Point(2, 3);
             this.MainMenuPanel.Name = "MainMenuPanel";
             this.MainMenuPanel.Size = new System.Drawing.Size(1400, 597);

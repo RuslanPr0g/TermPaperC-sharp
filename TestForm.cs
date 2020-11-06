@@ -160,6 +160,7 @@ namespace Term_Paper_Rudenko
 
             CurrentQuestionLabel();
             AlreadyAnsweredLabel();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void ShowDisclaimer()

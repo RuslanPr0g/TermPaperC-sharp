@@ -34,18 +34,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(332, 178);
+            this.label1.Location = new System.Drawing.Point(374, 256);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.Size = new System.Drawing.Size(49, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 588);
+            this.ClientSize = new System.Drawing.Size(1242, 845);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

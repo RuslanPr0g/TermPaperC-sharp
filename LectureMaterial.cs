@@ -127,6 +127,7 @@ namespace Term_Paper_Rudenko
             }
 
             this.FormClosed += new FormClosedEventHandler(f_FormClosed);
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void DisplayCurrentPortion()

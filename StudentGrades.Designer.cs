@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,23 +47,14 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 99);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 117);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1187, 443);
+            this.dataGridView1.Size = new System.Drawing.Size(1038, 526);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(311, 46);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Grade For Student";
             // 
             // Column1
             // 
@@ -97,13 +88,26 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(148, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(302, 45);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Grade For Student";
+            // 
             // StudentGrades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1225, 554);
+            this.ClientSize = new System.Drawing.Size(1072, 658);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 8.2F);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "StudentGrades";
             this.Text = "StudentGrades";
             this.Load += new System.EventHandler(this.StudentGrades_Load);

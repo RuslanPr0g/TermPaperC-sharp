@@ -31,6 +31,27 @@ namespace Term_Paper_Rudenko
             return _username + "\t" + _lectureID + "\t" + seconds;
         }
 
+        public static double AverageTimeSpentOnLectures(string username, List<SpentTimeOnLecture> lectures)
+        {
+            double sum = 0;
+            double count = 0;
+
+            foreach (SpentTimeOnLecture lecture in lectures)
+            {
+                if (lecture.Username == username)
+                {
+                    sum += lecture.Seconds;
+
+                    count++;
+                }
+            }
+
+            if (count > 0)
+                return sum / count;
+            else
+                return 0;
+        }
+
         public string Username
         {
             get

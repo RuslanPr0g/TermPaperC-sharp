@@ -42,6 +42,7 @@ namespace Term_Paper_Rudenko
                     dataGridView1.Rows.Add(grades[i].ID, _lecture.Name, grades[i].Grade5 , grades[i].Grade100);
                 }
             }
+            this.WindowState = FormWindowState.Maximized;
         }
     }
 }

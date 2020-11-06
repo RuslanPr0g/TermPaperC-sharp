@@ -59,6 +59,7 @@ namespace Term_Paper_Rudenko
             }
 
             CheckTestsByLectures();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void FilterLecturesByTopics()

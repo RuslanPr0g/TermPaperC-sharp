@@ -52,6 +52,7 @@ namespace Term_Paper_Rudenko
             label4.Text = "You have added " + lecture.GetNumberOfPortions() + " portions.";
             button2.Text = mode + " Lecture";
             ShowCurrent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void ShowPortion()

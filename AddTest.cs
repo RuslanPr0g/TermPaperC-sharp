@@ -58,6 +58,7 @@ namespace Term_Paper_Rudenko
 
                 button6.Text = "EDIT CONTROL TASK";
             }
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void HideShowGetValueFields(bool show)

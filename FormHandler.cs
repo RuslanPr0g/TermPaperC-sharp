@@ -17,6 +17,8 @@ namespace Term_Paper_Rudenko
             open.ShowDialog();
             open.Show();
             close.Dispose();
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormWithoutDispose(Form close, Form open)
@@ -25,46 +27,65 @@ namespace Term_Paper_Rudenko
             open.Closed += (s, args) => close.Close();
             open.ShowDialog();
             open.Show();
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormAsDialog(Form open)
         {
             open.ShowDialog();
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherForm(Form open)
         {
             open.Show();
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormAsDialogAndClose(Form close, Form open)
         {
             open.ShowDialog();
-            FormClose(close, open);
+            FormClose(close);
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormAndClose(Form close, Form open)
         {
             open.Show();
-            FormClose(close, open);
+            FormClose(close);
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormAsDialogAndHide(Form hide, Form open)
         {
             open.ShowDialog();
             hide.Hide();
+
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormAndHide(Form hide, Form open)
         {
             open.Show();
             hide.Hide();
+
+            FullScreen(open);
         }
 
-        private static void FormClose(Form close, Form open)
+        private static void FormClose(Form close)
         {
             close.Hide();
             close.Close();
+        }
+
+        public static void FullScreen(Form open)
+        {
+            open.WindowState = FormWindowState.Maximized;
         }
     }
 }

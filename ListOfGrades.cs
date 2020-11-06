@@ -25,6 +25,7 @@ namespace Term_Paper_Rudenko
             grades = FH.ReadGradesFromFile();
 
             SetupData();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void SetupData()

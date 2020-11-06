@@ -14,6 +14,8 @@ namespace Term_Paper_Rudenko
     {
         Student student;
 
+        FileHandler FH = new FileHandler();
+
         public StudentPanel()
         {
             student = new Student();
@@ -31,6 +33,11 @@ namespace Term_Paper_Rudenko
         private void StudentPanel_Load(object sender, EventArgs e)
         {
             label1.Text = "Welcome " + student.Username + "!";
+
+            label2.Text = "Average Time Spent On Lectures: " + SpentTimeOnLecture.AverageTimeSpentOnLectures(student.Username, FH.ReadTimesSpentOnLecturesFromFile());
+
+            label3.Text = "Average Grade For Tests: " + Grade.CalculateAverage(FH.SelectGradesByUsername(student.Username));
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void button3_Click(object sender, EventArgs e)

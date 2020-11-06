@@ -40,9 +40,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(52, 106);
+            this.button1.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(24, 152);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 243);
+            this.button1.Size = new System.Drawing.Size(224, 187);
             this.button1.TabIndex = 0;
             this.button1.Text = "Add Lecture";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,18 +53,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 54);
+            this.label1.Font = new System.Drawing.Font("Segoe WP Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(14, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 17);
+            this.label1.Size = new System.Drawing.Size(338, 54);
             this.label1.TabIndex = 1;
             this.label1.Text = "Welcome Teacher !";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(358, 106);
+            this.button2.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button2.Location = new System.Drawing.Point(24, 347);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(300, 243);
+            this.button2.Size = new System.Drawing.Size(224, 156);
             this.button2.TabIndex = 2;
             this.button2.Text = "Add Test";
             this.button2.UseVisualStyleBackColor = true;
@@ -70,9 +75,11 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(52, 355);
+            this.button3.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(522, 347);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(300, 243);
+            this.button3.Size = new System.Drawing.Size(284, 156);
             this.button3.TabIndex = 3;
             this.button3.Text = "List of Students";
             this.button3.UseVisualStyleBackColor = true;
@@ -80,9 +87,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(358, 355);
+            this.button4.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(254, 153);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(300, 243);
+            this.button4.Size = new System.Drawing.Size(262, 186);
             this.button4.TabIndex = 4;
             this.button4.Text = "List of Lectures";
             this.button4.UseVisualStyleBackColor = true;
@@ -90,19 +99,23 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(851, 35);
+            this.button5.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(1348, 17);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(113, 54);
+            this.button5.Size = new System.Drawing.Size(186, 126);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Exit";
+            this.button5.Text = "Log Out";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(664, 106);
+            this.button6.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button6.Location = new System.Drawing.Point(254, 347);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(300, 243);
+            this.button6.Size = new System.Drawing.Size(262, 156);
             this.button6.TabIndex = 6;
             this.button6.Text = "List of Tests";
             this.button6.UseVisualStyleBackColor = true;
@@ -110,9 +123,11 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(664, 355);
+            this.button7.Font = new System.Drawing.Font("Segoe WP Black", 18.2F, System.Drawing.FontStyle.Bold);
+            this.button7.Location = new System.Drawing.Point(522, 153);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(300, 243);
+            this.button7.Size = new System.Drawing.Size(284, 186);
             this.button7.TabIndex = 7;
             this.button7.Text = "List of Grade";
             this.button7.UseVisualStyleBackColor = true;
@@ -120,9 +135,9 @@
             // 
             // TeacherPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 634);
+            this.ClientSize = new System.Drawing.Size(1547, 530);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -131,6 +146,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "TeacherPanel";
             this.Text = "TeacherPanel";
             this.Load += new System.EventHandler(this.TeacherPanel_Load);

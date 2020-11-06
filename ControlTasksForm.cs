@@ -48,6 +48,7 @@ namespace Term_Paper_Rudenko
                 lectureIDS[i] = times[i].LectureID;
 
             LoadTests();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void LoadTests()

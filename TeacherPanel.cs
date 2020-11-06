@@ -31,6 +31,7 @@ namespace Term_Paper_Rudenko
         private void TeacherPanel_Load(object sender, EventArgs e)
         {
             label1.Text = "Welcome " + teacher.Username + "!";
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void button5_Click(object sender, EventArgs e)

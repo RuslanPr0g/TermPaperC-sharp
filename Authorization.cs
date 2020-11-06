@@ -43,6 +43,8 @@ namespace Term_Paper_Rudenko
             SignupRequirements.Visible = false;
 
             ShowPasswordHandler();
+
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private string Username

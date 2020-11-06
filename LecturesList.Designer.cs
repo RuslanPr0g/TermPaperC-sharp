@@ -49,12 +49,13 @@
             this.id,
             this.name,
             this.topic});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 17);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1088, 436);
+            this.dataGridView1.Size = new System.Drawing.Size(1224, 627);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CurrentCellChanged += new System.EventHandler(this.dataGridView1_CurrentCellChanged);
@@ -86,9 +87,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 464);
+            this.button1.Location = new System.Drawing.Point(14, 667);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 40);
+            this.button1.Size = new System.Drawing.Size(181, 58);
             this.button1.TabIndex = 1;
             this.button1.Text = "Read lecture";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,17 +99,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(204, 476);
+            this.label1.Location = new System.Drawing.Point(230, 684);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 17);
+            this.label1.Size = new System.Drawing.Size(185, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Total number of lectures";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 510);
+            this.button2.Location = new System.Drawing.Point(14, 733);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(161, 40);
+            this.button2.Size = new System.Drawing.Size(181, 58);
             this.button2.TabIndex = 3;
             this.button2.Text = "Edit lecture";
             this.button2.UseVisualStyleBackColor = true;
@@ -116,9 +119,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 522);
+            this.label2.Location = new System.Drawing.Point(230, 750);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(524, 17);
+            this.label2.Size = new System.Drawing.Size(605, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "You need to read the previous lesson. Or the previous lesson with the same topic." +
     "";
@@ -127,9 +130,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(204, 505);
+            this.label3.Location = new System.Drawing.Point(230, 726);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(852, 17);
+            this.label3.Size = new System.Drawing.Size(975, 23);
             this.label3.TabIndex = 5;
             this.label3.Text = "Pay attention, that you have not read the previous lesson, but you can read this," +
     " because the previous lesson with this topic was read.";
@@ -137,15 +140,17 @@
             // 
             // LecturesList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 612);
+            this.ClientSize = new System.Drawing.Size(1251, 839);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LecturesList";
             this.Text = "LecturesList";
             this.Load += new System.EventHandler(this.LecturesList_Load);
