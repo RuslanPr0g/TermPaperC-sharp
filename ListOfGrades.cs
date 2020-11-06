@@ -22,6 +22,8 @@ namespace Term_Paper_Rudenko
 
         private void ListOfGrades_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             grades = FH.ReadGradesFromFile();
 
             SetupData();

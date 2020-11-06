@@ -24,5 +24,24 @@ namespace Term_Paper_Rudenko
 
             FormHandler.OpenAnotherFormWithDispose(this, a);
         }
+
+        public static void StyleButtons(Control c)
+        {
+            List<Button> b = new List<Button>();
+
+            foreach (Control B in c.Controls)
+            {
+                if (B is Button)
+                {
+                    b.Add(B as Button);
+                }
+            }
+
+            foreach (Button button in b)
+            {
+                button.BackColor = Color.Transparent;
+                button.FlatStyle = FlatStyle.Flat;
+            }
+        }
     }
 }

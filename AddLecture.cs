@@ -90,6 +90,8 @@ namespace Term_Paper_Rudenko
 
         private void AddLecture_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             if (mode == "Add")
             {
                 lectures = FH.ReadLecturesFromFile();

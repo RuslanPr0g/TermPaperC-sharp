@@ -12,12 +12,12 @@ namespace Term_Paper_Rudenko
     {
         public static void OpenAnotherFormWithDispose(Form close, Form open)
         {
-                close.Hide();
-                open.Closed += (s, args) => close.Close();
-                open.ShowDialog();
-                close.Dispose();
+            close.Hide();
+            open.Closed += (s, args) => close.Close();
+            open.ShowDialog();
+            close.Dispose();
 
-                FullScreen(open);
+            FullScreen(open);
         }
 
         public static void OpenAnotherFormWithoutDispose(Form close, Form open)

@@ -35,6 +35,8 @@ namespace Term_Paper_Rudenko
 
         private void ListOfUsers_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             label1.Text = "List of " + user;
 
             switch (user)

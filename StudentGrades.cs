@@ -28,6 +28,8 @@ namespace Term_Paper_Rudenko
 
         private void StudentGrades_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             label1.Text = "Grade For Student " + _student.Username;
 
             List<Grade> grades = FH.ReadGradesFromFile();

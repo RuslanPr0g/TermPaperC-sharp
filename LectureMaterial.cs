@@ -99,6 +99,8 @@ namespace Term_Paper_Rudenko
 
         private void LectureMaterial_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             if (_student != null)
             {
                 _time = FH.SelectTimeByLectureIDAndUsername(lecture.ID, _student.Username);

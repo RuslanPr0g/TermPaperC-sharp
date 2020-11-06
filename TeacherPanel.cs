@@ -36,12 +36,13 @@ namespace Term_Paper_Rudenko
 
         private void TeacherPanel_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             label1.Text = "Welcome " + teacher.Username + "!";
 
             Total();
 
-            //ontestadded
-
+            AddTest.OnTestAdded += Totals;
             TestForm.OnGradeGot += Totals;
             OnPanelLogOut += Panel_LogOut;
 

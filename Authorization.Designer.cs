@@ -55,6 +55,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SignupRequirements = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SignupRequirements.SuspendLayout();
@@ -62,18 +63,21 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(52, 498);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(357, 60);
             this.button1.TabIndex = 0;
             this.button1.Text = "LOGIN";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.button2.Location = new System.Drawing.Point(52, 565);
             this.button2.Name = "button2";
@@ -174,6 +178,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.textBox6);
             this.panel1.Controls.Add(this.label6);
@@ -194,7 +199,7 @@
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Location = new System.Drawing.Point(659, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 643);
+            this.panel1.Size = new System.Drawing.Size(513, 658);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -202,7 +207,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
-            this.checkBox1.Location = new System.Drawing.Point(12, 612);
+            this.checkBox1.Location = new System.Drawing.Point(52, 614);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(139, 27);
             this.checkBox1.TabIndex = 18;
@@ -348,11 +353,25 @@
             this.SignupRequirements.Size = new System.Drawing.Size(623, 643);
             this.SignupRequirements.TabIndex = 20;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(243, 612);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(166, 31);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Forgot password?";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 680);
+            this.ClientSize = new System.Drawing.Size(1228, 699);
             this.Controls.Add(this.SignupRequirements);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Light", 9F);
@@ -397,5 +416,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel SignupRequirements;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button3;
     }
 }

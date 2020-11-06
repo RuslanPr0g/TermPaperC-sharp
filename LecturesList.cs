@@ -31,6 +31,8 @@ namespace Term_Paper_Rudenko
 
         private void LecturesList_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             lectures = FH.ReadLecturesFromFile();
 
             foreach (Lecture lecture in lectures)

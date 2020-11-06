@@ -87,6 +87,8 @@ namespace Term_Paper_Rudenko
         {
             // view test
 
+            Form1.StyleButtons(this);
+
             if (_student == null)
             {
                 QuestionCountLabel.Enabled = false;

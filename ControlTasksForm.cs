@@ -29,6 +29,8 @@ namespace Term_Paper_Rudenko
 
         private void ControlTasksForm_Load(object sender, EventArgs e)
         {
+            Form1.StyleButtons(this);
+
             groupBox1.Visible = false;
 
             button2.Visible = !(_user is Student);
