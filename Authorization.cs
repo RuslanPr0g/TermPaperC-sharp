@@ -272,7 +272,7 @@ namespace Term_Paper_Rudenko
                         {
                             StudentPanel SP = new StudentPanel(new Student(Username, Password, NameField, Lastname, Group));
 
-                            FormHandler.OpenAnotherFormAsDialogAndClose(this, SP);
+                            FormHandler.OpenAnotherFormWithDispose(this, SP);
                         }
                         else
                         {
@@ -287,7 +287,7 @@ namespace Term_Paper_Rudenko
                         {
                             TeacherPanel TP = new TeacherPanel(new Teacher(Username, Password, NameField, Lastname));
 
-                            FormHandler.OpenAnotherFormAsDialogAndClose(this, TP);
+                            FormHandler.OpenAnotherFormWithDispose(this, TP);
                         }
                         else
                         {

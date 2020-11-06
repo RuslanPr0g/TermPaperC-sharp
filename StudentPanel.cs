@@ -34,7 +34,7 @@ namespace Term_Paper_Rudenko
         {
             label1.Text = "Welcome " + student.Username + "!";
 
-            label2.Text = "Average Time Spent On Lectures: " + SpentTimeOnLecture.AverageTimeSpentOnLectures(student.Username, FH.ReadTimesSpentOnLecturesFromFile());
+            label2.Text = "Average Time Spent On Lectures: " + SpentTimeOnLecture.AverageTimeSpentOnLectures(student.Username, FH.ReadTimesSpentOnLecturesFromFile()) + "s";
 
             label3.Text = "Average Grade For Tests: " + Grade.CalculateAverage(FH.SelectGradesByUsername(student.Username));
             this.WindowState = FormWindowState.Maximized;

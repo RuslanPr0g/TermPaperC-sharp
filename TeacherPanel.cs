@@ -13,6 +13,7 @@ namespace Term_Paper_Rudenko
     public partial class TeacherPanel : Form
     {
         Teacher teacher;
+        FileHandler FH = new FileHandler();
 
         public TeacherPanel()
         {
@@ -31,7 +32,17 @@ namespace Term_Paper_Rudenko
         private void TeacherPanel_Load(object sender, EventArgs e)
         {
             label1.Text = "Welcome " + teacher.Username + "!";
+
+            Totals();
+
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Totals()
+        {
+            label2.Text = "Total lectures: " + FH.ReadLecturesFromFile().Count;
+            label3.Text = "Total tests: " + FH.ReadControlTasksFromFile().Count;
+            label4.Text = "Total grades: " + FH.ReadGradesFromFile().Count;
         }
 
         private void button5_Click(object sender, EventArgs e)
