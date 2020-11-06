@@ -25,8 +25,10 @@ namespace Term_Paper_Rudenko
             FormHandler.OpenAnotherFormWithDispose(this, a);
         }
 
-        public static void StyleButtons(Control c)
+        public static void ModernStyle(Control c)
         {
+            // buttons
+
             List<Button> b = new List<Button>();
 
             foreach (Control B in c.Controls)
@@ -41,6 +43,23 @@ namespace Term_Paper_Rudenko
             {
                 button.BackColor = Color.Transparent;
                 button.FlatStyle = FlatStyle.Flat;
+            }
+
+            // textboxes
+
+            List<TextBox> t = new List<TextBox>();
+
+            foreach (Control T in c.Controls)
+            {
+                if (T is TextBox)
+                {
+                    t.Add(T as TextBox);
+                }
+            }
+
+            foreach (TextBox textbox in t)
+            {
+                textbox.BorderStyle = BorderStyle.FixedSingle;
             }
         }
     }

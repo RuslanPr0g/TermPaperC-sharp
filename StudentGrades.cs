@@ -28,7 +28,7 @@ namespace Term_Paper_Rudenko
 
         private void StudentGrades_Load(object sender, EventArgs e)
         {
-            Form1.StyleButtons(this);
+            Form1.ModernStyle(this);
 
             label1.Text = "Grade For Student " + _student.Username;
 

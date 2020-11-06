@@ -87,7 +87,7 @@ namespace Term_Paper_Rudenko
         {
             // view test
 
-            Form1.StyleButtons(this);
+            Form1.ModernStyle(this);
 
             if (_student == null)
             {

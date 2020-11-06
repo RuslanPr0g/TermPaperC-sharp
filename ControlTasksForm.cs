@@ -29,7 +29,7 @@ namespace Term_Paper_Rudenko
 
         private void ControlTasksForm_Load(object sender, EventArgs e)
         {
-            Form1.StyleButtons(this);
+            Form1.ModernStyle(this);
 
             groupBox1.Visible = false;
 

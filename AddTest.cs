@@ -39,7 +39,7 @@ namespace Term_Paper_Rudenko
 
         private void AddTest_Load(object sender, EventArgs e)
         {
-            Form1.StyleButtons(this);
+            Form1.ModernStyle(this);
 
             if (mode == "Add")
             {

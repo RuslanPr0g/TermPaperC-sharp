@@ -89,6 +89,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox1.Location = new System.Drawing.Point(52, 293);
             this.textBox1.Name = "textBox1";
@@ -143,6 +145,7 @@
             // 
             // textBox2
             // 
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox2.Location = new System.Drawing.Point(52, 370);
             this.textBox2.Name = "textBox2";
@@ -161,6 +164,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox3.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox3.Location = new System.Drawing.Point(52, 446);
             this.textBox3.Name = "textBox3";
@@ -217,6 +221,7 @@
             // 
             // textBox6
             // 
+            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox6.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox6.Location = new System.Drawing.Point(235, 446);
             this.textBox6.Name = "textBox6";
@@ -235,6 +240,7 @@
             // 
             // textBox5
             // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox5.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox5.Location = new System.Drawing.Point(235, 370);
             this.textBox5.Name = "textBox5";
@@ -253,6 +259,7 @@
             // 
             // textBox4
             // 
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.textBox4.Location = new System.Drawing.Point(235, 293);
             this.textBox4.Name = "textBox4";
