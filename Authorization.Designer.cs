@@ -62,7 +62,7 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(52, 498);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(357, 60);
@@ -202,7 +202,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
-            this.checkBox1.Location = new System.Drawing.Point(3, 606);
+            this.checkBox1.Location = new System.Drawing.Point(12, 612);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(139, 27);
             this.checkBox1.TabIndex = 18;
@@ -352,7 +352,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 660);
+            this.ClientSize = new System.Drawing.Size(1228, 680);
             this.Controls.Add(this.SignupRequirements);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Light", 9F);

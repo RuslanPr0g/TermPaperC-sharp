@@ -127,15 +127,22 @@ namespace Term_Paper_Rudenko
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].DefaultCellStyle.BackColor == Color.Red && dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex - 1].DefaultCellStyle.BackColor != Color.Red)
-            {
-                LectureMaterial LM = new LectureMaterial(FH.SelectLectureByID(Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString())), _user as Student);
+            LectureMaterial LM = new LectureMaterial(FH.SelectLectureByID(Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[1].Value.ToString())), _user as Student);
 
-                FormHandler.OpenAnotherFormAsDialogAndHide(this, LM);
-            }
-            else
+            if (dataGridView1.CurrentCell.RowIndex > 0)
             {
-                MessageBox.Show("You need to read previous lecture first.");
+                if (dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].DefaultCellStyle.BackColor == Color.Red && dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex - 1].DefaultCellStyle.BackColor != Color.Red)
+                {
+                    FormHandler.OpenAnotherFormAsDialogAndHide(this, LM);
+                }
+                else
+                {
+                    MessageBox.Show("You need to read previous lecture first.");
+                }
+            }
+            else if (dataGridView1.CurrentCell.RowIndex == 0)
+            {
+                FormHandler.OpenAnotherFormAsDialogAndHide(this, LM);
             }
         }
 

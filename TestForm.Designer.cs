@@ -212,7 +212,7 @@
             this.QuestionPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QuestionPanel.Controls.Add(this.QuestionPanel_TitleLabel);
             this.QuestionPanel.Controls.Add(this.AnswersBox);
-            this.QuestionPanel.Location = new System.Drawing.Point(317, 15);
+            this.QuestionPanel.Location = new System.Drawing.Point(361, 15);
             this.QuestionPanel.Name = "QuestionPanel";
             this.QuestionPanel.Size = new System.Drawing.Size(1069, 567);
             this.QuestionPanel.TabIndex = 7;
@@ -260,7 +260,7 @@
             this.MainMenuPanel.Font = new System.Drawing.Font("Segoe UI Light", 10.2F);
             this.MainMenuPanel.Location = new System.Drawing.Point(2, 3);
             this.MainMenuPanel.Name = "MainMenuPanel";
-            this.MainMenuPanel.Size = new System.Drawing.Size(1400, 597);
+            this.MainMenuPanel.Size = new System.Drawing.Size(1437, 597);
             this.MainMenuPanel.TabIndex = 9;
             this.MainMenuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainMenuPanel_Paint);
             // 
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1414, 606);
+            this.ClientSize = new System.Drawing.Size(1487, 606);
             this.Controls.Add(this.MainMenuPanel);
             this.Controls.Add(this.panelShowMessage);
             this.Name = "TestForm";
