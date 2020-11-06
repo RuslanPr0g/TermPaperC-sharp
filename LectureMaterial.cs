@@ -28,6 +28,8 @@ namespace Term_Paper_Rudenko
 
         TimeSpan timeSpan;
 
+        public static event EventHandler OnLectureRead;
+
         public LectureMaterial(Lecture l)
         {
             InitializeComponent();
@@ -44,6 +46,11 @@ namespace Term_Paper_Rudenko
             lecture = l;
 
             _student = student;
+        }
+
+        public void Lecture_Read(object sender, EventArgs e)
+        {
+            PassTestButton.Visible = true;
         }
 
         public void StartLecture()
@@ -86,6 +93,8 @@ namespace Term_Paper_Rudenko
         {
             if (_student != null)
                 SaveTime();
+
+            OnLectureRead?.Invoke(this, EventArgs.Empty);
         }
 
         private void LectureMaterial_Load(object sender, EventArgs e)
@@ -126,7 +135,9 @@ namespace Term_Paper_Rudenko
                 label3.Visible = true;
             }
 
+            OnLectureRead += Lecture_Read;
             this.FormClosed += new FormClosedEventHandler(f_FormClosed);
+            this.FormClosed += Lecture_Read;
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -142,9 +153,9 @@ namespace Term_Paper_Rudenko
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (currentPortion + 1 == lecture.GetNumberOfPortions() - 1 && _student != null)
+            if (currentPortion + 1 == lecture.GetNumberOfPortions() - 1 && _student != null) // lecture read
             {
-                PassTestButton.Visible = true;
+                OnLectureRead?.Invoke(this, EventArgs.Empty);
             }
 
             if (currentPortion + 1 <= lecture.GetNumberOfPortions() - 1)

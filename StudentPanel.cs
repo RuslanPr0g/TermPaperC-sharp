@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,10 @@ namespace Term_Paper_Rudenko
         Student student;
 
         FileHandler FH = new FileHandler();
+
+        TimeSpan timeSpan;
+
+        public event EventHandler OnPanelLogOut;
 
         public StudentPanel()
         {
@@ -34,15 +39,42 @@ namespace Term_Paper_Rudenko
         {
             label1.Text = "Welcome " + student.Username + "!";
 
-            label2.Text = "Average Time Spent On Lectures: " + SpentTimeOnLecture.AverageTimeSpentOnLectures(student.Username, FH.ReadTimesSpentOnLecturesFromFile()) + "s";
+            Total();
+
+            LectureMaterial.OnLectureRead += Totals;
+            TestForm.OnGradeGot += Totals;
+            OnPanelLogOut += Panel_LogOut;
+
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Total()
+        {
+            timeSpan = TimeSpan.FromSeconds(SpentTimeOnLecture.AverageTimeSpentOnLectures(student.Username, FH.ReadTimesSpentOnLecturesFromFile()));
+
+            label2.Text = string.Format("Average Time Spent On Lectures: {0:D2} hours {1:D2} minutes {2:D2} seconds",
+                            timeSpan.Hours,
+                            timeSpan.Minutes,
+                            timeSpan.Seconds);
 
             label3.Text = "Average Grade For Tests: " + Grade.CalculateAverage(FH.SelectGradesByUsername(student.Username));
-            this.WindowState = FormWindowState.Maximized;
+        }
+
+        public void Totals(object sender, EventArgs e)
+        {
+            Total();
+        }
+
+        public void Panel_LogOut(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Authorization a = new Authorization();
+
+            OnPanelLogOut?.Invoke(this, EventArgs.Empty);
 
             FormHandler.OpenAnotherFormWithDispose(this, a);
         }

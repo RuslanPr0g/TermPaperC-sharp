@@ -95,6 +95,7 @@
       <DependentUpon>Authorization.cs</DependentUpon>
     </Compile>
     <Compile Include="ChoiceAnswer.cs" />
+    <Compile Include="ColorScheme.cs" />
     <Compile Include="ControlTask.cs" />
     <Compile Include="ControlTasksForm.cs">
       <SubType>Form</SubType>

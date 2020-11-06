@@ -37,6 +37,7 @@ namespace Term_Paper_Rudenko
                     answeredQuestions[i] = new QuestionGetValue();
                 }
             }
+
         }
 
         public Question GetNext()

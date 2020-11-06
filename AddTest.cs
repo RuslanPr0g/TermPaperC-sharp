@@ -19,6 +19,8 @@ namespace Term_Paper_Rudenko
 
         string mode = "Add";
 
+        public static event EventHandler OnTestAdded;
+
         public AddTest()
         {
             InitializeComponent();
@@ -451,6 +453,8 @@ namespace Term_Paper_Rudenko
             if (mode == "Add")
             {
                 FH.WriteControlTaskToFile(CT);
+
+                OnTestAdded?.Invoke(this, EventArgs.Empty);
             }
             else
             {

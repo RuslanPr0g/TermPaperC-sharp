@@ -29,6 +29,8 @@ namespace Term_Paper_Rudenko
 
         TimeSpan timeSpan;
 
+        public static event EventHandler OnGradeGot;
+
         public TestForm(ControlTask ct)
         {
             InitializeComponent();
@@ -472,6 +474,8 @@ namespace Term_Paper_Rudenko
 
                 FH.WriteGradeToFile(grade);
             }
+
+            OnGradeGot?.Invoke(this, EventArgs.Empty);
 
             MessageBox.Show("Test Done! Your grade is " + grade.Grade5);
 

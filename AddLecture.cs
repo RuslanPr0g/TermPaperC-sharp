@@ -20,11 +20,19 @@ namespace Term_Paper_Rudenko
 
         int currentPortion = 0;
 
+        public event EventHandler OnLectureAdded;
+        public event EventHandler OnLectureAdding;
+        public event EventHandler OnLectureEdited;
+        public event EventHandler OnLectureEditing;
+
         public AddLecture(string MODE)
         {
             InitializeComponent();
 
             mode = MODE;
+
+            OnLectureAdding += Lecture_Add;
+            OnLectureEditing += Lecture_Edit;
         }
 
         public AddLecture(string MODE, Lecture l)
@@ -34,6 +42,50 @@ namespace Term_Paper_Rudenko
             lecture = l;
 
             mode = MODE;
+
+            OnLectureAdding += Lecture_Add;
+            OnLectureEditing += Lecture_Edit;
+        }
+
+        private void PushInfoToLecture()
+        {
+            lecture.Name = textBox1.Text;
+            lecture.Topic = textBox2.Text;
+
+            lecture.ID = lectures.Count;
+
+            lecture.FileName = lecture.ID + ".txt";
+        }
+
+        public void Lecture_Add(object sender, EventArgs e)
+        {
+            PushInfoToLecture();
+
+            FH.WriteLectureToFile(lecture);
+
+            OnLectureAdded?.Invoke(this, EventArgs.Empty);
+
+            MessageBox.Show("Lecture " + lecture.Name + " added.");
+
+            this.Close();
+        }
+
+        public void Lecture_Edit(object sender, EventArgs e)
+        {
+            PushInfoToLecture();
+
+            FH.EditLectureInFile(lecture);
+
+            OnLectureEdited?.Invoke(this, EventArgs.Empty);
+
+            MessageBox.Show("Lecture " + lecture.Name + " edited.");
+
+            this.Close();
+        }
+
+        public void Lecture_Read(object sender, EventArgs e)
+        {
+
         }
 
         private void AddLecture_Load(object sender, EventArgs e)
@@ -80,29 +132,14 @@ namespace Term_Paper_Rudenko
                 return;
             }
 
-            lecture.Name = textBox1.Text;
-            lecture.Topic = textBox2.Text;
-
-            lecture.ID = lectures.Count;
-
-            lecture.FileName = lecture.ID + ".txt";
-
             if (mode == "Add")
             {
-                FH.WriteLectureToFile(lecture);
-
-                MessageBox.Show("Lecture " + lecture.Name + " added.");
-
-                // DO YOU WANT TO ADD TEST FOR THIS LECTURE?
+                OnLectureAdding?.Invoke(this, EventArgs.Empty);
             }
             else
             {
-                FH.EditLectureInFile(lecture);
-
-                MessageBox.Show("Lecture " + lecture.Name + " edited.");
+                OnLectureEditing?.Invoke(this, EventArgs.Empty);
             }
-
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -114,22 +114,22 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe WP Light", 18F);
-            this.label3.Location = new System.Drawing.Point(630, 289);
+            this.label3.Font = new System.Drawing.Font("Segoe WP Light", 12F);
+            this.label3.Location = new System.Drawing.Point(515, 291);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(329, 41);
+            this.label3.Size = new System.Drawing.Size(217, 28);
             this.label3.TabIndex = 7;
             this.label3.Text = "Average Grade For Tests:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe WP Light", 18F);
-            this.label2.Location = new System.Drawing.Point(630, 86);
+            this.label2.Font = new System.Drawing.Font("Segoe WP Light", 12F);
+            this.label2.Location = new System.Drawing.Point(515, 92);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(444, 41);
+            this.label2.Size = new System.Drawing.Size(294, 28);
             this.label2.TabIndex = 6;
             this.label2.Text = "Average Time Spent On Lectures: ";
             // 

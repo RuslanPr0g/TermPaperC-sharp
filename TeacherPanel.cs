@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,10 @@ namespace Term_Paper_Rudenko
     {
         Teacher teacher;
         FileHandler FH = new FileHandler();
+
+        TimeSpan timeSpan;
+
+        public event EventHandler OnPanelLogOut;
 
         public TeacherPanel()
         {
@@ -33,21 +38,45 @@ namespace Term_Paper_Rudenko
         {
             label1.Text = "Welcome " + teacher.Username + "!";
 
-            Totals();
+            Total();
+
+            //ontestadded
+
+            TestForm.OnGradeGot += Totals;
+            OnPanelLogOut += Panel_LogOut;
 
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void Totals()
+        private void Total()
         {
             label2.Text = "Total lectures: " + FH.ReadLecturesFromFile().Count;
             label3.Text = "Total tests: " + FH.ReadControlTasksFromFile().Count;
             label4.Text = "Total grades: " + FH.ReadGradesFromFile().Count;
+
+            timeSpan = TimeSpan.FromSeconds(FH.ReadTimesSpentOnLecturesFromFile().Sum(x => x.Seconds));
+
+            label5.Text = string.Format("Total time spent on lectures: {0:D2} hours {1:D2} minutes {2:D2} seconds",
+                            timeSpan.Hours,
+                            timeSpan.Minutes,
+                            timeSpan.Seconds);
+        }
+
+        private void Totals(object sender, EventArgs e)
+        {
+            Total();
+        }
+
+        public void Panel_LogOut(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Authorization a = new Authorization();
+
+            OnPanelLogOut?.Invoke(this, EventArgs.Empty);
 
             FormHandler.OpenAnotherFormWithDispose(this, a);
         }
@@ -67,6 +96,8 @@ namespace Term_Paper_Rudenko
         private void button1_Click(object sender, EventArgs e)
         { // add lecture
             AddLecture AL = new AddLecture("Add");
+
+            AL.OnLectureAdded += Totals;
 
             FormHandler.OpenAnotherFormAsDialog(AL);
         }
