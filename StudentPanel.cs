@@ -39,6 +39,8 @@ namespace Term_Paper_Rudenko
         {
             label1.Text = "Welcome " + student.Username + "!";
 
+            label4.Visible = FH.SelectPasswordRecoveryByUsername(student.Username) == null ? true : false;
+
             Total();
 
             LectureMaterial.OnLectureRead += Totals;
@@ -46,6 +48,11 @@ namespace Term_Paper_Rudenko
             OnPanelLogOut += Panel_LogOut;
 
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void UpdateStudent(Student student)
+        {
+            this.student = student;
         }
 
         private void Total()
@@ -98,6 +105,29 @@ namespace Term_Paper_Rudenko
             ControlTasksForm CTF = new ControlTasksForm(student);
 
             FormHandler.OpenAnotherFormAsDialog(CTF);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string info = string.Empty;
+
+            List<Grade> grades = FH.SelectGradesByUsername(student.Username);
+
+            foreach (Grade grade in grades)
+            {
+                info += FH.SelectControlTaskByID(grade.ControlTask).Name + " : " + grade.Grade5 + " : " + grade.Grade100 + ".\n";
+            }
+
+            MessageBox.Show(info);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            UserSettings US = new UserSettings(student);
+
+            US.OnStudentSettingsChanged += UpdateStudent;
+
+            FormHandler.OpenAnotherFormAsDialog(US);
         }
     }
 }

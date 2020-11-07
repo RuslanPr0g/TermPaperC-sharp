@@ -29,13 +29,11 @@ namespace Term_Paper_Rudenko
 
         private void ControlTasksForm_Load(object sender, EventArgs e)
         {
-            Form1.ModernStyle(this);
+            Form1.ModernLayout(this);
 
             groupBox1.Visible = false;
 
             button2.Visible = !(_user is Student);
-
-            button1.Visible = !(_user is Teacher);
 
             if (_user is Teacher)
             {
@@ -156,7 +154,9 @@ namespace Term_Paper_Rudenko
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == _user.Password)
+            Hasher H = new Hasher();
+
+            if (textBox1.Text == H.UnHashString(_user.Password))
             {
                 TestForm AT = new TestForm(tests[dataGridView1.CurrentCell.RowIndex]);
 

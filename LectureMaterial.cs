@@ -99,7 +99,7 @@ namespace Term_Paper_Rudenko
 
         private void LectureMaterial_Load(object sender, EventArgs e)
         {
-            Form1.ModernStyle(this);
+            Form1.ModernLayout(this);
 
             if (_student != null)
             {

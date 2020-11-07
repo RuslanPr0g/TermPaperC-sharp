@@ -17,6 +17,8 @@ namespace Term_Paper_Rudenko
         AuthHandler AH = new AuthHandler();
         FileHandler FH = new FileHandler();
 
+        PasswordRecovery pr;
+
         bool student;
 
         private bool _LOGINMODE = true;
@@ -30,7 +32,20 @@ namespace Term_Paper_Rudenko
         {
             radioButton1.Checked = true;
 
+            groupBox1.Visible = false;
+
+            string ff = "";
+
+            for (int i = 0; i < ForbiddenSymbols.SignUP.Length; i++)
+                ff += ForbiddenSymbols.SignUP[i];
+
+            label14.Text = "Fields cannot contain the following: " + ff;
+
             VisibilityConfirmField();
+
+            pr = FH.SelectPasswordRecoveryByUsername(Username);
+
+            question.Text = pr.Question;
 
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -270,7 +285,9 @@ namespace Term_Paper_Rudenko
 
                         if (result == "")
                         {
-                            StudentPanel SP = new StudentPanel(new Student(Username, Password, NameField, Lastname, Group));
+                            Student s = FH.SelectStudentByUsername(Username);
+
+                            StudentPanel SP = new StudentPanel(s);
 
                             FormHandler.OpenAnotherFormWithDispose(this, SP);
                         }
@@ -285,7 +302,9 @@ namespace Term_Paper_Rudenko
 
                         if (result == "")
                         {
-                            TeacherPanel TP = new TeacherPanel(new Teacher(Username, Password, NameField, Lastname));
+                            Teacher t = FH.SelectTeacherByUsername(Username);
+
+                            TeacherPanel TP = new TeacherPanel(t);
 
                             FormHandler.OpenAnotherFormWithDispose(this, TP);
                         }
@@ -333,8 +352,38 @@ namespace Term_Paper_Rudenko
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
+        { // forgot password
+            if (pr != null && pr.Answer == answer.Text)
+            {
+                UserSettings US;
 
+                if (student == true)
+                {
+                    Student s = FH.SelectStudentByUsername(Username);
+
+                    US = new UserSettings(s);
+                }
+                else
+                {
+                    Teacher t = FH.SelectTeacherByUsername(Username);
+
+                    US = new UserSettings(t);
+                }
+
+                FormHandler.OpenAnotherFormAsDialog(US);
+
+                groupBox1.Visible = false;
+
+                FormHandler.OpenAnotherFormWithDispose(this, US);
+            }
+            else
+            {
+                MessageBox.Show("Answer is incorrert.");
+
+                groupBox1.Visible = false;
+            }
+
+            answer.Text = string.Empty;
         }
     }
 }

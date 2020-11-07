@@ -36,9 +36,11 @@ namespace Term_Paper_Rudenko
 
         private void TeacherPanel_Load(object sender, EventArgs e)
         {
-            Form1.ModernStyle(this);
+            Form1.ModernLayout(this);
 
             label1.Text = "Welcome " + teacher.Username + "!";
+
+            label6.Visible = FH.SelectPasswordRecoveryByUsername(teacher.Username) == null ? true : false;
 
             Total();
 
@@ -47,6 +49,11 @@ namespace Term_Paper_Rudenko
             OnPanelLogOut += Panel_LogOut;
 
             this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void UpdateTeacher(Teacher teacher)
+        {
+            this.teacher = teacher;
         }
 
         private void Total()
@@ -129,6 +136,15 @@ namespace Term_Paper_Rudenko
             ListOfGrades CTF = new ListOfGrades();
 
             FormHandler.OpenAnotherForm(CTF);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            UserSettings US = new UserSettings(teacher);
+
+            US.OnTeacherSettingsChanged += UpdateTeacher;
+
+            FormHandler.OpenAnotherFormAsDialog(US);
         }
     }
 }

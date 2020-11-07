@@ -35,7 +35,7 @@ namespace Term_Paper_Rudenko
 
         private void ListOfUsers_Load(object sender, EventArgs e)
         {
-            Form1.ModernStyle(this);
+            Form1.ModernLayout(this);
 
             label1.Text = "List of " + user;
 

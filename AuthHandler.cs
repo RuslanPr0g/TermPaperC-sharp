@@ -12,7 +12,7 @@ namespace Term_Paper_Rudenko
     {
         FileHandler FH = new FileHandler();
 
-        private string TRUE = "";
+        public static string TRUE = "";
 
         private string login = "LOGIN";
         private string signup = "SIGNUP";
@@ -50,6 +50,19 @@ namespace Term_Paper_Rudenko
             }
 
             return (uppercase == true && lowercase == true && number == true);
+        }
+
+        public bool AreForbiddenSymbols(string S)
+        {
+            foreach (char s in S)
+            {
+                if (ForbiddenSymbols.SignUP.Contains(s))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         public void AddStudent(string username, string password, string name, string lastname, string group)
@@ -93,7 +106,7 @@ namespace Term_Paper_Rudenko
 
             List<Teacher> teachers = FH.ReadTeachersFromFile();
 
-            foreach(Teacher teacher in teachers)
+            foreach (Teacher teacher in teachers)
             {
                 if (teacher.Username == username && H.UnHashString(teacher.Password) == password)
                 {
@@ -104,7 +117,7 @@ namespace Term_Paper_Rudenko
             return exists;
         }
 
-        public string SignUPTeacher(string username, string password, string passwordToConfirm, string name, string lastname)
+        public string SignupRequirements(bool student, string username, string password, string passwordToConfirm, string name, string lastname)
         {
             if (password != passwordToConfirm)
             {
@@ -116,14 +129,50 @@ namespace Term_Paper_Rudenko
                 return "You need to use at least one number, one lowercase letter, one uppercase letter.\nExample: Sl0n.";
             }
 
-            if (CheckTeacher(username, password) == true)
+            if (AreForbiddenSymbols(password) == true || AreForbiddenSymbols(username) == true)
+            {
+                string ff = "";
+
+                for (int i = 0; i < ForbiddenSymbols.SignUP.Length; i++)
+                    ff += ForbiddenSymbols.SignUP[i];
+
+                return "Fields cannot contain the following: " + ff;
+            }
+
+            if (username.Length > 16 || password.Length > 16)
+            {
+                return "Username and/or Password must be shorter than 16 letters.";
+            }
+
+            if (name.Length > 30 || lastname.Length > 30)
+            {
+                return "Name and/or Lastname is too long.";
+            }
+
+            if (student == false && CheckTeacher(username, password) == true)
             {
                 return ("Teacher exists.");
+            }
+            else if (CheckStudent(username, password) == true)
+            {
+                return ("Student exists.");
             }
 
             if (username == password)
             {
-                return ("Password cannot coincide.");
+                return ("Password and Username cannot coincide.");
+            }
+
+            return TRUE;
+        }
+
+        public string SignUPTeacher(string username, string password, string passwordToConfirm, string name, string lastname)
+        {
+            string requirements = this.SignupRequirements(false, username, password, passwordToConfirm, name, lastname);
+
+            if (requirements != TRUE)
+            {
+                return requirements;
             }
 
             AddTeacher(username, password, name, lastname);
@@ -133,24 +182,11 @@ namespace Term_Paper_Rudenko
 
         public string SignUPStudent(string username, string password, string passwordToConfirm, string name, string lastname, string group)
         {
-            if (password != passwordToConfirm)
-            {
-                return ("Passwords have to coincide.");
-            }
+            string requirements = this.SignupRequirements(true, username, password, passwordToConfirm, name, lastname);
 
-            if (RequiredSymbols(password) == false)
+            if (requirements != TRUE)
             {
-                return "You need to use at least one number, one lowercase letter, one uppercase letter.\nExample: Sl0n.";
-            }
-
-            if (CheckStudent(username, password) == true)
-            {
-                return ("Student exists.");
-            }
-
-            if (username == password)
-            {
-                return ("Password cannot coincide.");
+                return requirements;
             }
 
             AddStudent(username, password, name, lastname, group);

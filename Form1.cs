@@ -25,7 +25,7 @@ namespace Term_Paper_Rudenko
             FormHandler.OpenAnotherFormWithDispose(this, a);
         }
 
-        public static void ModernStyle(Control c)
+        public static void ModernLayout(Control c)
         {
             // buttons
 

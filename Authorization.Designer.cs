@@ -40,6 +40,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,10 +56,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.SignupRequirements = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.answer = new System.Windows.Forms.TextBox();
+            this.question = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SignupRequirements.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -182,6 +190,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.textBox6);
@@ -203,9 +212,23 @@
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Location = new System.Drawing.Point(659, 29);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(513, 658);
+            this.panel1.Size = new System.Drawing.Size(462, 658);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Transparent;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(243, 612);
+            this.button3.Margin = new System.Windows.Forms.Padding(0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(166, 31);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Forgot password?";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // checkBox1
             // 
@@ -340,7 +363,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(32, 391);
+            this.label13.Location = new System.Drawing.Point(32, 370);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(201, 23);
             this.label13.TabIndex = 19;
@@ -348,6 +371,8 @@
             // 
             // SignupRequirements
             // 
+            this.SignupRequirements.Controls.Add(this.label15);
+            this.SignupRequirements.Controls.Add(this.label14);
             this.SignupRequirements.Controls.Add(this.label13);
             this.SignupRequirements.Controls.Add(this.label7);
             this.SignupRequirements.Controls.Add(this.label12);
@@ -360,25 +385,89 @@
             this.SignupRequirements.Size = new System.Drawing.Size(623, 643);
             this.SignupRequirements.TabIndex = 20;
             // 
-            // button3
+            // label15
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(243, 612);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 31);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Forgot password?";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(32, 414);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(441, 23);
+            this.label15.TabIndex = 21;
+            this.label15.Text = "Username and/or Password must be shorter than 16 letters.";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 14F);
+            this.label14.Location = new System.Drawing.Point(32, 446);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(98, 32);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "<none>";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.question);
+            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.answer);
+            this.groupBox1.Location = new System.Drawing.Point(92, 38);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.groupBox1.Size = new System.Drawing.Size(265, 154);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Answer to question";
+            this.groupBox1.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Maroon;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button5.Location = new System.Drawing.Point(226, 0);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(40, 33);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "X";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(191, 96);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(61, 34);
+            this.button4.TabIndex = 1;
+            this.button4.Text = "OK";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // answer
+            // 
+            this.answer.Font = new System.Drawing.Font("Segoe WP Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.answer.Location = new System.Drawing.Point(21, 96);
+            this.answer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.answer.Name = "answer";
+            this.answer.Size = new System.Drawing.Size(165, 34);
+            this.answer.TabIndex = 0;
+            // 
+            // question
+            // 
+            this.question.Font = new System.Drawing.Font("Segoe WP Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.question.Location = new System.Drawing.Point(21, 56);
+            this.question.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.question.Name = "question";
+            this.question.ReadOnly = true;
+            this.question.Size = new System.Drawing.Size(165, 34);
+            this.question.TabIndex = 3;
             // 
             // Authorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 699);
+            this.ClientSize = new System.Drawing.Size(1142, 699);
             this.Controls.Add(this.SignupRequirements);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI Light", 9F);
@@ -390,6 +479,8 @@
             this.panel1.PerformLayout();
             this.SignupRequirements.ResumeLayout(false);
             this.SignupRequirements.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -424,5 +515,12 @@
         private System.Windows.Forms.Panel SignupRequirements;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox answer;
+        private System.Windows.Forms.TextBox question;
     }
 }

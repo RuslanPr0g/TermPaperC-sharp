@@ -16,6 +16,7 @@ namespace Term_Paper_Rudenko
         private string teachers = "teachers.bin";
         private string grades = "grades.bin";
         private string times = "times.bin";
+        private string passwordRecoveries = "recoveries.bin";
 
         public FileHandler()
         {
@@ -44,6 +45,41 @@ namespace Term_Paper_Rudenko
                 bw.Write(password);
                 bw.Write(name);
                 bw.Write(lastname);
+            }
+            catch
+            {
+                return;
+            }
+
+            bw.Close();
+            fs.Close();
+        }
+
+        public void ReWriteTeachersToFile(List<Teacher> t)
+        {
+            FileStream fs;
+
+            BinaryWriter bw;
+
+            try
+            {
+                fs = new FileStream(teachers, FileMode.Create);
+                bw = new BinaryWriter(fs);
+            }
+            catch
+            {
+                return;
+            }
+
+            try
+            {
+                foreach (Teacher T in t)
+                {
+                    bw.Write(T.Username);
+                    bw.Write(T.Password);
+                    bw.Write(T.Name);
+                    bw.Write(T.Lastname);
+                }
             }
             catch
             {
@@ -135,6 +171,42 @@ namespace Term_Paper_Rudenko
             fs.Close();
         }
 
+        public void ReWriteStudentsToFile(List<Student> s)
+        {
+            FileStream fs;
+
+            BinaryWriter bw;
+
+            try
+            {
+                fs = new FileStream(students, FileMode.Create);
+                bw = new BinaryWriter(fs);
+            }
+            catch
+            {
+                return;
+            }
+
+            try
+            {
+                foreach (Student S in s)
+                {
+                    bw.Write(S.Username);
+                    bw.Write(S.Password);
+                    bw.Write(S.Name);
+                    bw.Write(S.Lastname);
+                    bw.Write(S.Group);
+                }
+            }
+            catch
+            {
+                return;
+            }
+
+            bw.Close();
+            fs.Close();
+        }
+
         public List<Student> ReadStudentsFromFile()
         {
             List<Student> s = new List<Student>();
@@ -192,6 +264,17 @@ namespace Term_Paper_Rudenko
             foreach (Student student in st)
                 if (student.Username == username)
                     return student;
+
+            return null;
+        }
+
+        public Teacher SelectTeacherByUsername(string username)
+        {
+            List<Teacher> st = this.ReadTeachersFromFile();
+
+            foreach (Teacher teacher in st)
+                if (teacher.Username == username)
+                    return teacher;
 
             return null;
         }
@@ -263,6 +346,21 @@ namespace Term_Paper_Rudenko
                 if (l.ID == lectureID)
                 {
                     return l;
+                }
+            }
+
+            return null;
+        }
+
+        public ControlTask SelectControlTaskByID(int taskID)
+        {
+            List<ControlTask> controlTasks = this.ReadControlTasksFromFile();
+
+            foreach (ControlTask t in controlTasks)
+            {
+                if (t.ID == taskID)
+                {
+                    return t;
                 }
             }
 
@@ -492,6 +590,135 @@ namespace Term_Paper_Rudenko
             fs.Close();
 
             return grades;
+        }
+
+        public void WritePasswordRecoveryToFile(List<PasswordRecovery> passwords)
+        {
+            FileStream fs;
+
+            BinaryWriter bw;
+
+            try
+            {
+                fs = new FileStream(this.passwordRecoveries, FileMode.Create);
+                bw = new BinaryWriter(fs);
+            }
+            catch
+            {
+                return;
+            }
+
+            try
+            {
+                foreach (PasswordRecovery PR in passwords)
+                {
+                    bw.Write(PR.Username);
+                    bw.Write(PR.Question);
+                    bw.Write(PR.Answer);
+                }
+            }
+            catch
+            {
+                return;
+            }
+
+            bw.Close();
+            fs.Close();
+        }
+
+        public void ReWritePasswordRecoveryToFile(List<PasswordRecovery> passwords)
+        {
+            FileStream fs;
+
+            BinaryWriter bw;
+
+            try
+            {
+                fs = new FileStream(this.passwordRecoveries, FileMode.Create);
+                bw = new BinaryWriter(fs);
+            }
+            catch
+            {
+                return;
+            }
+
+            try
+            {
+                foreach (PasswordRecovery p in passwords)
+                {
+                    bw.Write(p.Username);
+                    bw.Write(p.Question);
+                    bw.Write(p.Answer);
+                }
+            }
+            catch
+            {
+                return;
+            }
+
+            bw.Close();
+            fs.Close();
+        }
+
+        public List<PasswordRecovery> ReadPasswordRecoveryFromFile()
+        {
+            List<PasswordRecovery> passwords = new List<PasswordRecovery>();
+
+            FileStream fs;
+            BinaryReader br;
+
+            try
+            {
+                fs = new FileStream(this.passwordRecoveries, FileMode.Open);
+                br = new BinaryReader(fs);
+            }
+            catch
+            {
+                return passwords;
+            }
+
+            string username = "";
+            string question = "";
+            string answer = "";
+
+            try
+            {
+                while (true)
+                {
+                    try
+                    {
+                        username = br.ReadString();
+                        question = br.ReadString();
+                        answer = br.ReadString();
+
+                        passwords.Add(new PasswordRecovery(username, question, answer));
+                    }
+                    catch { break; }
+                }
+            }
+            catch
+            {
+            }
+
+            br.Close();
+            fs.Close();
+
+            return passwords;
+        }
+
+        public PasswordRecovery SelectPasswordRecoveryByUsername(string username)
+        {
+            List<PasswordRecovery> passwords = this.ReadPasswordRecoveryFromFile();
+
+            foreach (PasswordRecovery p in passwords)
+            {
+                if (p.Username == username)
+                {
+                    return p;
+                }
+            }
+
+            return null;
         }
 
         public void AppendTimeSpentOnLectureToFile(SpentTimeOnLecture t)
