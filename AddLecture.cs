@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Term_Paper_Rudenko
 {
@@ -17,6 +18,8 @@ namespace Term_Paper_Rudenko
         List<Lecture> lectures;
 
         private string mode = "";
+
+        bool ENOUGH = false;
 
         int currentPortion = 0;
 
@@ -197,6 +200,91 @@ namespace Term_Paper_Rudenko
             if (mode == "Edit")
             {
                 lecture.ModifyPortion(currentPortion, richTextBox1.Text);
+            }
+        }
+
+        private void PushFileDataAsPortions(string a)
+        {
+            if (a == string.Empty || a.Trim() == string.Empty) return;
+
+            string temp = a;
+
+            int length = 50;
+
+            richTextBox1.Text = "";
+
+            for (int i = lecture.GetNumberOfPortions(); i >= 0; i--)
+            {
+                try
+                {
+                    lecture.RemovePortion(i);
+                }
+                catch
+                {
+                    continue;
+                }
+            }
+
+            while (temp != "")
+            {
+                if (ENOUGH == false)
+                {
+                    try
+                    {
+                        richTextBox1.Text += temp.Substring(0, length);
+                        temp = temp.Substring(length);
+                    }
+                    catch
+                    {
+                        richTextBox1.Text += temp.Substring(0);
+                        temp = string.Empty;
+                    }
+                }
+                else
+                {
+                    lecture.AddPortion(richTextBox1.Text);
+                    richTextBox1.Text = "";
+                    currentPortion = lecture.GetNumberOfPortions() - 1;
+                    label4.Text = "You have added " + lecture.GetNumberOfPortions() + " portions.";
+                    ShowCurrent();
+                }
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string FILE_DATA = FileHandler.BrowseForFile();
+
+            PushFileDataAsPortions(FILE_DATA);
+        }
+
+        private void richTextBox1_ContentsResized(object sender, ContentsResizedEventArgs e)
+        {
+            if (e.NewRectangle.Height >= richTextBox1.Height)
+            {
+                ENOUGH = true;
+            }
+            else
+            {
+                ENOUGH = false;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lectures.Count; i++)
+            {
+                if (lectures[i].ID == Convert.ToInt32(ID.Text))
+                {
+                    lecture = lectures[i];
+
+                    textBox1.Text = lecture.Name;
+                    textBox2.Text = lecture.Topic;
+                    ShowPortion();
+                    label4.Text = "You have added " + lecture.GetNumberOfPortions() + " portions.";
+                    button2.Text = mode + " Lecture";
+                    ShowCurrent();
+                }
             }
         }
     }

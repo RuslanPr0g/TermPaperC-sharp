@@ -68,13 +68,7 @@ namespace Term_Paper_Rudenko
 
         public void RemovePortion(int ID)
         {
-            try
-            {
-                portions.RemoveAt(ID);
-            }
-            catch
-            {
-            }
+            portions.RemoveAt(ID);
         }
 
         public string GetPortion(int ID)

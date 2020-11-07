@@ -375,7 +375,7 @@ namespace Term_Paper_Rudenko
             {
                 UserSettings US;
 
-                if (student == true)
+                if (radioButton1.Checked == true)
                 {
                     Student s = FH.SelectStudentByUsername(Username);
 

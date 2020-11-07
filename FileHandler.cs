@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using System.IO;
 using System.Runtime.Remoting.Messaging;
 using Microsoft.SqlServer.Server;
+using System.Windows.Forms;
 
 namespace Term_Paper_Rudenko
 {
@@ -936,6 +936,31 @@ namespace Term_Paper_Rudenko
             fromStream.Close();
 
             return data;
+        }
+
+        public static string BrowseForFile()
+        {
+            string text = string.Empty;
+
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            DialogResult result = openFileDialog1.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string file = openFileDialog1.FileName;
+
+                try
+                {
+                    text = File.ReadAllText(file);
+                }
+                catch (IOException e)
+                {
+                    return e.Message;
+                }
+            }
+
+            return text;
         }
     }
 }
