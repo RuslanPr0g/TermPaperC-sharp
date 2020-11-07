@@ -433,6 +433,7 @@
             this.button5.TabIndex = 2;
             this.button5.Text = "X";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button4
             // 
@@ -443,6 +444,7 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "OK";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // answer
             // 
@@ -460,7 +462,7 @@
             this.question.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.question.Name = "question";
             this.question.ReadOnly = true;
-            this.question.Size = new System.Drawing.Size(165, 34);
+            this.question.Size = new System.Drawing.Size(231, 34);
             this.question.TabIndex = 3;
             // 
             // Authorization

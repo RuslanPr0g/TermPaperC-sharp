@@ -19,7 +19,7 @@ namespace Term_Paper_Rudenko
 
         PasswordRecovery pr;
 
-        bool student;
+        bool student = true;
 
         private bool _LOGINMODE = true;
 
@@ -45,7 +45,8 @@ namespace Term_Paper_Rudenko
 
             pr = FH.SelectPasswordRecoveryByUsername(Username);
 
-            question.Text = pr.Question;
+            if (pr != null)
+                question.Text = pr.Question;
 
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -353,6 +354,23 @@ namespace Term_Paper_Rudenko
 
         private void button3_Click(object sender, EventArgs e)
         { // forgot password
+            if (pr == null)
+                pr = FH.SelectPasswordRecoveryByUsername(Username);
+
+            if (pr != null)
+            {
+                question.Text = pr.Question;
+
+                groupBox1.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("This user either does not exist or does not have a secret question. Ask a teacher for help.");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
             if (pr != null && pr.Answer == answer.Text)
             {
                 UserSettings US;
@@ -370,11 +388,9 @@ namespace Term_Paper_Rudenko
                     US = new UserSettings(t);
                 }
 
-                FormHandler.OpenAnotherFormAsDialog(US);
-
                 groupBox1.Visible = false;
 
-                FormHandler.OpenAnotherFormWithDispose(this, US);
+                FormHandler.OpenAnotherFormAsDialog(US);
             }
             else
             {
@@ -384,6 +400,11 @@ namespace Term_Paper_Rudenko
             }
 
             answer.Text = string.Empty;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
         }
     }
 }
