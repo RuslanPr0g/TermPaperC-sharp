@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 776);
+            this.ClientSize = new System.Drawing.Size(1275, 776);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.PassTestButton);
             this.Controls.Add(this.label2);

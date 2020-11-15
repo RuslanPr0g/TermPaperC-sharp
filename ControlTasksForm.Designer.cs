@@ -152,7 +152,8 @@
             this.label2.Location = new System.Drawing.Point(225, 653);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(580, 19);
+            this.label2.Padding = new System.Windows.Forms.Padding(10);
+            this.label2.Size = new System.Drawing.Size(600, 39);
             this.label2.TabIndex = 5;
             this.label2.Text = "To pass this test, please, read lecture before. You can read it by pressing the b" +
     "utton \"Read Lecture\"";

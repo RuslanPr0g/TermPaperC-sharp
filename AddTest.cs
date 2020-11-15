@@ -332,9 +332,17 @@ namespace Term_Paper_Rudenko
 
         private void button1_Click(object sender, EventArgs e)
         { // add question
+            if (dataGridView1.Rows.Count < 3)
+            {
+                MessageBox.Show("Please, add at least three answers.");
+
+                return;
+            }
+
             if (GetValue == false && CheckAnswers() == false)
             {
                 MessageBox.Show("Please, make at least one value as correct.");
+
                 return;
             }
 
@@ -431,6 +439,13 @@ namespace Term_Paper_Rudenko
 
         private void button6_Click(object sender, EventArgs e)
         { // add control task
+            if (this.CT.NumberOfQuestions < 3)
+            {
+                MessageBox.Show("Please, add at least three questions.");
+
+                return;
+            }
+
             CT.SecondsToPass = SecondsToPass;
             CT.LectureID = LectureID;
             CT.FolderName = "controlTasks";

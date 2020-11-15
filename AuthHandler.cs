@@ -81,8 +81,6 @@ namespace Term_Paper_Rudenko
 
         public bool CheckStudent(string username, string password)
         {
-            bool exists = false;
-
             Hasher H = new Hasher();
 
             List<Student> students = FH.ReadStudentsFromFile();
@@ -91,11 +89,11 @@ namespace Term_Paper_Rudenko
             {
                 if (student.Username == username && H.UnHashString(student.Password) == password)
                 {
-                    exists = true;
+                    return true;
                 }
             }
 
-            return exists;
+            return false;
         }
 
         public bool CheckTeacher(string username, string password)

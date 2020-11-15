@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Term_Paper_Rudenko
+﻿namespace Term_Paper_Rudenko
 {
     public class Hasher
     {

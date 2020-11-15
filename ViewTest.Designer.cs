@@ -58,12 +58,11 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Segoe WP Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1176, 141);
+            this.button1.Location = new System.Drawing.Point(1176, 155);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 115);
+            this.button1.Size = new System.Drawing.Size(91, 49);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Next Question";
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // ViewTest
@@ -76,6 +75,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Name = "ViewTest";
             this.Text = "ViewTest";
+            this.Load += new System.EventHandler(this.ViewTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

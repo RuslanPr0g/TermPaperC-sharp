@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Term_Paper_Rudenko.exe" size="702944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Term_Paper_Rudenko.exe" size="702432">
       <assemblyIdentity name="Term_Paper_Rudenko" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IgEWmHkFSl9FQaqNm3rKQGWbNGNTqeqYRU6PgDQDOjY=</dsig:DigestValue>
+        <dsig:DigestValue>W6Q8ONTDxLlriuQVZ1UUm6x+i9OV7H+ZW9QPIbaWZGM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

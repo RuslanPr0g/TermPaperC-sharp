@@ -354,8 +354,7 @@ namespace Term_Paper_Rudenko
 
         private void button3_Click(object sender, EventArgs e)
         { // forgot password
-            if (pr == null)
-                pr = FH.SelectPasswordRecoveryByUsername(Username);
+            pr = FH.SelectPasswordRecoveryByUsername(Username);
 
             if (pr != null)
             {

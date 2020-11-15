@@ -119,9 +119,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(230, 750);
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(230, 776);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(605, 23);
+            this.label2.Padding = new System.Windows.Forms.Padding(10);
+            this.label2.Size = new System.Drawing.Size(625, 43);
             this.label2.TabIndex = 4;
             this.label2.Text = "You need to read the previous lesson. Or the previous lesson with the same topic." +
     "";
@@ -130,9 +133,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(230, 726);
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
+            this.label3.Location = new System.Drawing.Point(230, 733);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(975, 23);
+            this.label3.Padding = new System.Windows.Forms.Padding(10);
+            this.label3.Size = new System.Drawing.Size(995, 43);
             this.label3.TabIndex = 5;
             this.label3.Text = "Pay attention, that you have not read the previous lesson, but you can read this," +
     " because the previous lesson with this topic was read.";

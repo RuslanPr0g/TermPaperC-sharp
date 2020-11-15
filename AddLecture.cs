@@ -1,27 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Term_Paper_Rudenko
 {
     public partial class AddLecture : Form
     {
         private Lecture lecture = new Lecture();
-        FileHandler FH = new FileHandler();
-        List<Lecture> lectures;
+        private FileHandler FH = new FileHandler();
+        private List<Lecture> lectures;
 
         private string mode = "";
 
-        bool ENOUGH = false;
+        private bool ENOUGH = false;
 
-        int currentPortion = 0;
+        private int currentPortion = 0;
 
         public event EventHandler OnLectureAdded;
         public event EventHandler OnLectureAdding;
@@ -272,6 +265,17 @@ namespace Term_Paper_Rudenko
 
         private void button7_Click(object sender, EventArgs e)
         {
+            try
+            {
+                _ = Convert.ToInt32(ID.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Please, enter a number.");
+
+                return;
+            }
+
             for (int i = 0; i < lectures.Count; i++)
             {
                 if (lectures[i].ID == Convert.ToInt32(ID.Text))

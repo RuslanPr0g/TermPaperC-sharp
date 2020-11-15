@@ -16,5 +16,10 @@ namespace Term_Paper_Rudenko
         {
             InitializeComponent();
         }
+
+        private void ViewTest_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

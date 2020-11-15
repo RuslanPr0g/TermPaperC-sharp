@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
-using Microsoft.SqlServer.Server;
 using System.Windows.Forms;
 
 namespace Term_Paper_Rudenko
@@ -615,40 +610,6 @@ namespace Term_Paper_Rudenko
                     bw.Write(PR.Username);
                     bw.Write(PR.Question);
                     bw.Write(PR.Answer);
-                }
-            }
-            catch
-            {
-                return;
-            }
-
-            bw.Close();
-            fs.Close();
-        }
-
-        public void ReWritePasswordRecoveryToFile(List<PasswordRecovery> passwords)
-        {
-            FileStream fs;
-
-            BinaryWriter bw;
-
-            try
-            {
-                fs = new FileStream(this.passwordRecoveries, FileMode.Create);
-                bw = new BinaryWriter(fs);
-            }
-            catch
-            {
-                return;
-            }
-
-            try
-            {
-                foreach (PasswordRecovery p in passwords)
-                {
-                    bw.Write(p.Username);
-                    bw.Write(p.Question);
-                    bw.Write(p.Answer);
                 }
             }
             catch
