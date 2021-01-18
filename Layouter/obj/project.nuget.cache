@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RCzDiZT7qMj3YrZZ8HVW5LD8cob8zCCjAGp6ewJtBUJFpQ7gi1uHMc08fYcz2WNOgyCOkHXD3D+NAtZOjXewxQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\theru\\Desktop\\TermPaperC-sharp\\Layouter\\Layouter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\theru\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\theru\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
