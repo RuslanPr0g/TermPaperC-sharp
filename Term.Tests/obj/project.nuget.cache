@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FYnndLbpZI8E9g3jc7QJX4GpvkttO+cLN8HT+YLEXpfNgwromXYJKTpDMfz5ExMpMidCuOdF0fMhqcsaP4/nHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\theru\\Desktop\\TermPaperC-sharp\\Term.Tests\\Term.Tests.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\theru\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\theru\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

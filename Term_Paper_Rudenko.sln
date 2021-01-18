@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Term_Paper_Rudenko", "Term_Paper_Rudenko\Term_Paper_Rudenko.csproj", "{E1A042AE-9061-4DFA-BD71-DFFCF0CA07BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TermPaper.Tests", "TermPaper.Tests\TermPaper.Tests.csproj", "{A1E93A2C-C339-4574-90D1-1DF0E5601C56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{5E520EB1-FF34-4EED-A461-2621F7B9B441}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +19,19 @@ Global
 		{E1A042AE-9061-4DFA-BD71-DFFCF0CA07BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1A042AE-9061-4DFA-BD71-DFFCF0CA07BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1A042AE-9061-4DFA-BD71-DFFCF0CA07BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E93A2C-C339-4574-90D1-1DF0E5601C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E93A2C-C339-4574-90D1-1DF0E5601C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E93A2C-C339-4574-90D1-1DF0E5601C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E93A2C-C339-4574-90D1-1DF0E5601C56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E520EB1-FF34-4EED-A461-2621F7B9B441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E520EB1-FF34-4EED-A461-2621F7B9B441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E520EB1-FF34-4EED-A461-2621F7B9B441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E520EB1-FF34-4EED-A461-2621F7B9B441}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6097F1B2-47B0-44CC-BB34-3B907049F57E}
 	EndGlobalSection
 EndGlobal
